@@ -40,10 +40,16 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
+
+# Use bootstrap
+gem 'bootstrap', '~> 5.2.3'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+
+# Use erb formatter
+gem "erb-formatter"
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
@@ -54,9 +60,6 @@ group :development, :test do
 end
 
 group :development do
-  # Use sqlite3 as the database for Active Record
-  gem "sqlite3", "~> 1.4"
-
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
@@ -77,5 +80,3 @@ end
 group :production do
   gem 'pg'
 end
-
-gem "erb-formatter", "~> 0.4.2"
