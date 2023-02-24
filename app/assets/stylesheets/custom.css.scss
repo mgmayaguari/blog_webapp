@@ -1,0 +1,42 @@
+.navbar {
+  background-color: #000000 !important;
+}
+
+.nav-link {
+  color: #ffffff !important;
+}
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#home-container {
+  margin-top: 25px;
+}
+
+#home-inner-container {
+  background-image: asset-url('home_page_asset.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 40em;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 1 auto;
+  background-color: lightgrey;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}
