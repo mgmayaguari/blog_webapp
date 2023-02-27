@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :articles
   before_save {self.email = email.downcase }
 
-  validates :username, presence: true, length: { minimum: 3, maximum: 25 }, 
+  validates :username, presence: true, length: { minimum: 3, maximum: 25 },
     uniqueness: { case_sensitivity: false}
   validates :email, presence: true, length: { maximum: 105 }, uniqueness: { case_sensitivity: false},
     format: { with: VALID_EMAIL_REGEX }
