@@ -18,37 +18,65 @@
         <li class="nav-item">
           <%= link_to "Bloggers", users_path, class: "nav-link" %>
         </li>
+        <% if logged_in? %>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Articles
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Articles
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "Create new article", new_article_path, class: "dropdown-item" %>
-            <%= link_to "View articles", articles_path, class: "dropdown-item" %>
-          </ul>
-        </li>
+              <%= link_to "Create new article", new_article_path, class: "dropdown-item" %>
 
-        <li class="nav-item">
-          <%= link_to "Log in", login_path, class: "nav-link" %>
-        </li>
+              <%= link_to "View articles", articles_path, class: "dropdown-item" %>
+            </ul>
+          </li>
+        <% else %>
+          <%= link_to "Articles", articles_path, class: "nav-link" %>
+        <% end %>
 
-        <li class="nav-item">
-          <%= link_to "Log out",
-          logout_path,
-          class: "nav-link",
-          data: {
-            turbo_method: :delete,
-            turbo_confirm: "Are you sure?"
-          } %>
-        </li>
+        <% if logged_in? %>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <%= current_user.username %>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "View your profile", current_user, class: "dropdown-item" %>
+              <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Logout",
+            logout_path,
+            class: "nav-link",
+            data: {
+              turbo_method: :delete,
+              turbo_confirm: "Are you sure?"
+            } %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Log in", login_path, class: "nav-link" %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Sign up", signup_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
 
       <form class="d-flex">
