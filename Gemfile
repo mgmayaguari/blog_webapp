@@ -51,6 +51,9 @@ gem 'bootstrap', '~> 5.2.3'
 # Use erb formatter
 gem "erb-formatter"
 
+# Use pagination gem
+gem 'will_paginate', '~> 3.3'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem "sqlite3", "~> 1.4"

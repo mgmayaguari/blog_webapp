@@ -7,7 +7,9 @@
         <div class="card-header fst-italic">
           by
           <%= @article.user.username %>
+          <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
         </div>
+
         <div class="card-body">
           <div class="card-text text-start"><%= simple_format(@article.description) %></div>
           <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-info" %>
@@ -19,6 +21,7 @@
             turbo_confirm: "Are you sure?"
           } %>
         </div>
+
         <div class="card-footer text-muted">
           <small>Created
             <%= time_ago_in_words(@article.created_at) %>
